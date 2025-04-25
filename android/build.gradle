@@ -5,17 +5,40 @@ buildscript {
         compileSdkVersion = 35
         targetSdkVersion = 35
         ndkVersion = "27.1.12297006"
-        kotlinVersion = "2.0.21"
+        kotlinVersion = "1.8.0"
     }
+
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven {
+            url 'https://maven.pkg.github.com/com/facebook/react'
+            credentials {
+                username = "your-github-fabricio"  // Substitua pelo seu nome de usuário
+                password = project.findProperty("githubToken")  // Certifique-se de ter um token de acesso
+            }
+        }
+      mavenCentral()  // Outro repositório alternativo, caso o GitHub falhe
     }
+
+
+
     dependencies {
-        classpath("com.android.tools.build:gradle")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("com.android.tools.build:gradle:7.2.0")
+        classpath("com.facebook.react:react-native-gradle-plugin:0.74.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("com.google.gms:google-services:4.3.10")
     }
 }
 
 apply plugin: "com.facebook.react.rootproject"
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+

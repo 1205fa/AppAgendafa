@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral() // Certifique-se de incluir mavenCentral
+    }
+}
+rootProject.name = 'SeuProjetoReactNative'
+
+
+
+
+// Qualquer outra configuração vai abaixo do bloco pluginManagement
+
+
+include ':app'  // Inclui o módulo principal do app
+
+// Inclui o módulo 'react-native-masked-view' no projeto
+include ':react-native-masked-view'
+project(':react-native-masked-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-masked-view/android')
+
+// Você pode adicionar outros módulos que está utilizando, por exemplo:
+// include ':outro-modulo'
+// project(':outro-modulo').projectDir = new File(rootProject.projectDir, '../node_modules/outro-modulo/android')
+

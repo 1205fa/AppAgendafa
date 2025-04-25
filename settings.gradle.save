@@ -1,0 +1,14 @@
+// Define o nome do projeto
+rootProject.name = 'SeuProjetoReactNative'
+
+// Inclui o módulo principal do aplicativo
+include ':app'
+
+// Se você estiver usando módulos adicionais, como react-native-masked-view:
+include ':react-native-masked-view'
+project(':react-native-masked-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-masked-view/android')
+
+// Se você tiver outros módulos adicionais, adicione-os da mesma forma:
+include ':react-native-another-library'
+project(':react-native-another-library').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-another-library/android')
+

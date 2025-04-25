@@ -8,14 +8,15 @@ android {
     compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.appagendafa"
-        minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 1
-        versionName "1.0"
-        multiDexEnabled true
-        missingDimensionStrategy 'react-native', 'x86'
-    }
+    applicationId "com.appagendafa"
+    minSdkVersion rootProject.ext.minSdkVersion
+    targetSdkVersion rootProject.ext.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+    multiDexEnabled true
+    missingDimensionStrategy 'react-native', 'x86'
+}
+
 
     buildTypes {
         release {
@@ -40,7 +41,8 @@ android {
 
 dependencies {
     // Dependência principal do React Native
-    implementation "com.facebook.react:react-android"
+    implementation "com.facebook.react:react-native:0.74.0" // mesma do plugin usado no root build.gradle
+
 
     // Dependência do Hermes (se estiver usando)
     if (hermesEnabled.toBoolean()) {

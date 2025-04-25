@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.6' // Versão do Spring Boot
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE' // Gerenciamento de dependências
+    id 'java' // Plugin Java
+    id 'org.jetbrains.kotlin.jvm' version '1.7.21' // Kotlin plugin (se for usar Kotlin)
+}
+
+repositories {
+    mavenCentral() // Repositório para buscar as dependências
+}
+
+dependencies {
+    // Dependências do Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-web' // Starter para Web (REST API)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA (para trabalhar com bancos de dados)
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Template engine (Thymeleaf)
+    implementation 'org.springframework.boot:spring-boot-starter-mail' // Envio de e-mails
+    implementation 'org.springframework.boot:spring-boot-starter-validation' // Validação de dados
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8' // Kotlin Standard Library
+    implementation 'org.jetbrains.kotlin:kotlin-reflect' // Reflections do Kotlin
+    implementation 'org.postgresql:postgresql:42.5.0' // Driver JDBC para PostgreSQL
+
+    // Dependências para testes
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' // Testes do Spring Boot
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2' // Testes com JUnit 5
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.2'
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    kotlinOptions.jvmTarget = "17"  // Definindo a versão do JDK para Kotlin
+}
+
+test {
+    useJUnitPlatform() // Configuração para usar JUnit 5
+}
+
+springBoot {
+    mainClass.set("com.appagendafa.AppagendafaApplication") // Classe principal do Spring Boot
+}

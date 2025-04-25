@@ -1,4 +1,28 @@
 {
-  "name": "Appagendafa",
-  "displayName": "Appagendafa"
+  "name": "AppAgendafa",
+  "displayName": "AppAgendafa",
+  "expo": {
+    "sdkVersion": "46.0.0",
+    "platforms": ["ios", "android"],
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "enabled": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.appagendafa",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.appagendafa",
+      "versionCode": 1
+    }
+  }
 }
